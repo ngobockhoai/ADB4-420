@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApplication3.Models.Company>
+@{
+    ViewData["Title"] = "Tìm Kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1>Tìm Kiếm Nhân Viên</h1>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Mã Nhân Viên
+            </th>
+            <th>
+               Họ Và Tên
+            </th>
+            <th>
+               Ngày Sinh
+            </th>
+            <th>
+               Giới Tính
+            </th>
+            <th>
+               Chức Vụ
+            </th>
+            <th>
+               Lương
+
+            </th>
+            <th>
+               Địa Chỉ
+            </th>
+            <th>
+               Số Điện Thoại
+            </th>
+            <th>
+               CMND
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CMND)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index">Trở về</a>
+</div>

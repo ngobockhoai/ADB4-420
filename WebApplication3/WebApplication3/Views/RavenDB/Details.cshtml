@@ -1,0 +1,72 @@
+﻿@model WebApplication3.Models.Company
+
+@{
+    ViewData["Title"] = "Chi Tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1>Chi Tiết Thông Tin Nhân Viên</h1>
+</div>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Mã Nhân Viên
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            Họ Và Tên
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Ngày Sinh
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+        <dt class="col-sm-2">
+            Giới Tính
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+        <dt class="col-sm-2">
+            Chức vụ
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+        <dt class="col-sm-2">
+            Lương
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class="col-sm-2">
+            Địa Chỉ
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            Số Điện Thoại
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            CMND
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Trở về</a>
+</div>

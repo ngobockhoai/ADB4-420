@@ -1,0 +1,95 @@
+﻿@model IEnumerable<WebApplication3.Models.Company>
+@{
+    ViewData["Title"] = "Trang Chính";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1>Quản Lí Thông Tin Nhân Viên</h1>
+</div>
+
+
+<p>
+    <a asp-action="Create">Thêm mới nhân viên</a>
+</p>
+<p>
+    @using (Html.BeginForm("List", "RavenDB", FormMethod.Get))
+    {
+        <b> Tìm Kiếm Theo: </b> @Html.RadioButton("searchBy", "Name", true) <text> Tên </text> 
+        @Html.RadioButton("searchBy", "MaNV") <text> Mã Nhân Viên </text><br />
+        @Html.TextBox("search") <input type="submit" value="Tìm Kiếm" />
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã Nhân Viên
+            </th>
+            <th>
+                Họ Và Tên
+            </th>
+            <th>
+                Ngày Sinh
+            </th>
+            <th>
+                Giới Tính
+            </th>
+            <th>
+                Chức Vụ
+            </th>
+            <th>
+                Lương
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th>
+                CMND
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CMND)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { Id = item.Id, }, new { style = "color:Green" })|<br />
+                    @Html.ActionLink("Chi Tiết", "Details", new { Id = item.Id }, new { style = "color:Red" })|<br />
+                    @Html.ActionLink("Xoá", "Delete", new { Id = item.Id }, new { style = "color:Black" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
